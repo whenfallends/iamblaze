@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blaze.com</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="desktop" class="xp-desktop">
+    <!-- Desktop Icons (Upper Left) -->
+    <nav class="desktop-icons" aria-label="Desktop Shortcuts">
+      <button type="button" class="desktop-icon" data-app="my-computer">
+        <img src="assets/desktop-icons/my-computer.png" alt="My Computer">
+        <span>My Computer</span>
+      </button>
+      <button type="button" class="desktop-icon" data-app="notepad">
+        <img src="assets/desktop-icons/txt-file.png" alt="know_mebruh.txt">
+        <span>know_mebruh.txt</span>
+      </button>
+      <button type="button" class="desktop-icon" data-app="recycle-bin">
+        <img src="assets/desktop-icons/recycle-bin.png" alt="Recycle Bin">
+        <span>Recycle Bin</span>
+      </button>
+      <button type="button" class="desktop-icon" data-app="winamp">
+        <img src="assets/desktop-icons/winamp.png" alt="Winamp">
+        <span>Winamp</span>
+      </button>
+      <button type="button" class="desktop-icon" data-app="video-player">
+        <img src="assets/toolbar/webcam.png" alt="Video Player">
+        <span>Video Player</span>
+      </button>
+      <div class="desktop-icon desktop-icon-static" role="img" aria-label="Games">
+        <img src="assets/toolbar/games.png" alt="">
+        <span>Games</span>
+      </div>
+      <div class="desktop-icon desktop-icon-static" role="img" aria-label="Settings">
+        <img src="assets/toolbar/settings.png" alt="">
+        <span>Settings</span>
+      </div>
+      <div class="desktop-icon desktop-icon-static" role="img" aria-label="Help">
+        <img src="assets/toolbar/help.png" alt="">
+        <span>Help</span>
+      </div>
+    </nav>
+    <nav class="game-desktop-icons" aria-label="Game Shortcuts">
+      <button type="button" class="desktop-icon" data-app="tetris">
+        <img src="assets/desktop-icons/tetris.png" alt="Tetris">
+        <span>Tetris</span>
+      </button>
+      <button type="button" class="desktop-icon" data-app="chess">
+        <img src="assets/desktop-icons/chess.png" alt="Chess">
+        <span>Chess</span>
+      </button>
+    </nav>
+
+    <!-- Mobile View Switcher (Visible only on small screens) -->
+    <div class="mobile-view-bar" role="tablist" aria-label="Messenger Views">
+      <button type="button" class="mobile-tab active" data-mobile-target="chat-window" role="tab" aria-selected="true">
+        <img src="assets/messenger-icons/icq-flower-online.png" alt="">
+        <span>Chat (<span id="mobile-active-contact">Giselle</span>)</span>
+      </button>
+      <button type="button" class="mobile-tab" data-mobile-target="contacts-window" role="tab" aria-selected="false">
+        <img src="assets/toolbar/tab-contacts.png" alt="">
+        <span>Contacts</span>
+      </button>
+    </div>
+
+    <!-- Winamp Retro Mini Window (Left Edge Background Detail) -->
+    <section id="winamp-window" class="xp-window winamp-window" data-window="winamp" aria-label="Winamp Player">
+      <header class="winamp-titlebar window-drag-handle">
+        <span class="winamp-title">WINAMP 2.95</span>
+        <div class="winamp-controls">
+          <button type="button" class="winamp-btn" data-action="minimize" data-target="winamp-window" title="Minimize">_</button>
+          <button type="button" class="winamp-btn" data-action="close" data-target="winamp-window" title="Close">x</button>
+        </div>
+      </header>
+      <div class="winamp-body">
+        <div class="winamp-display">
+          <span class="winamp-time">02:47</span>
+          <span class="winamp-track">1. Mk.gee - Small Hope.mp3</span>
+        </div>
+        <div class="winamp-eq">
+          <div class="eq-bars">
+            <span class="eq-bar b1"></span>
+            <span class="eq-bar b2"></span>
+            <span class="eq-bar b3"></span>
+            <span class="eq-bar b4"></span>
+            <span class="eq-bar b5"></span>
+          </div>
+          <div class="winamp-transport">
+            <button type="button" class="wa-key" id="wa-prev" title="Previous">|&lt;</button>
+            <button type="button" class="wa-key" id="wa-play" title="Play">&gt;</button>
+            <button type="button" class="wa-key" id="wa-pause" title="Pause">||</button>
+            <button type="button" class="wa-key" id="wa-stop" title="Stop">[]</button>
+            <button type="button" class="wa-key" id="wa-next" title="Next">&gt;|</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Instant Messenger Chat Window -->
+    <section id="chat-window" class="xp-window icq-window icq-chat-window active-window" data-window="chat" aria-label="ICQ Chat Window">
+      <header class="icq-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/messenger-icons/icq-flower-online.png" alt="ICQ" class="title-flower">
+          <span class="titlebar-username" id="chat-owner-name" contenteditable="true" title="Click to edit your username">Blaze</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" class="xp-win-btn" data-action="minimize" data-target="chat-window" title="Minimize">_</button>
+          <button type="button" class="xp-win-btn" data-action="maximize" data-target="chat-window" title="Maximize">□</button>
+          <button type="button" class="xp-win-btn close-btn" data-action="close" data-target="chat-window" title="Close">×</button>
+        </div>
+      </header>
+
+      <!-- Active Contact Tab Bar -->
+      <div class="chat-contact-tabbar">
+        <div class="active-contact-tab">
+          <img id="chat-tab-status-icon" src="assets/messenger-icons/icq-flower-online.png" alt="Status">
+          <span id="chat-tab-contact-name">Giselle</span>
+          <button type="button" id="close-chat-tab" class="tab-close-btn" title="Close Conversation">
+            <img src="assets/decorations/close-circle.png" alt="Close">
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Split Content: Avatars Column + Conversation Column -->
+      <div class="chat-main-grid">
+        <!-- Left Avatar Column -->
+        <aside class="chat-avatars-pane">
+          <div class="avatar-frame contact-avatar-frame">
+            <img id="chat-contact-avatar" src="assets/profile-pictures/mark.png" alt="Contact Avatar">
+          </div>
+          <div class="avatar-status-caption" id="chat-contact-status-text">Online</div>
+          <div class="avatar-spacer"></div>
+          <div class="avatar-frame self-avatar-frame">
+            <img id="chat-self-avatar" src="assets/profile-pictures/anya.png" alt="My Avatar">
+          </div>
+        </aside>
+
+        <!-- Right Conversation + Composer Column -->
+        <div class="chat-conversation-pane">
+          <!-- Messenger Action Icons Bar -->
+          <div class="chat-action-toolbar" role="toolbar" aria-label="Communication Actions">
+            <button type="button" class="icq-icon-btn" data-tool-action="Webcam call started"><img src="assets/toolbar/webcam.png" alt="Webcam" title="Video call"></button>
+            <button type="button" class="icq-icon-btn" data-tool-action="Voice call started"><img src="assets/toolbar/mic.png" alt="Voice Call" title="Voice call"></button>
+            <button type="button" class="icq-icon-btn" data-tool-action="Invited friend to multi-chat"><img src="assets/toolbar/group.png" alt="Invite" title="Invite to chat"></button>
+            <button type="button" class="icq-icon-btn" data-tool-action="File transfer dialog opened"><img src="assets/toolbar/send-file.png" alt="Send File" title="Send file"></button>
+            <button type="button" class="icq-icon-btn" data-tool-action="ICQ Games launched"><img src="assets/toolbar/games.png" alt="Games" title="Games"></button>
+            <span class="toolbar-divider"></span>
+            <button type="button" class="icq-icon-btn" data-tool-action="Viewing message history"><img src="assets/toolbar/history.png" alt="History" title="Message history"></button>
+          </div>
+
+          <!-- Action Feedback Banner -->
+          <div id="chat-system-notice" class="chat-system-notice hidden" role="status"></div>
+
+          <!-- Scrollable Chat History -->
+          <div id="chat-history" class="chat-history" role="log" aria-live="polite"></div>
+
+          <!-- Message Composer Area -->
+          <div class="chat-composer">
+            <div class="composer-tabs">
+              <button type="button" class="composer-tab active" data-mode="chat">Chat</button>
+              <button type="button" class="composer-tab" data-mode="sms">SMS</button>
+            </div>
+            <div class="composer-toolbar">
+              <button type="button" class="icq-icon-btn" id="btn-tzer" title="Animated postcard"><img src="assets/toolbar/tzer.png" alt="Tzer"></button>
+              <button type="button" class="icq-icon-btn" id="btn-emoticon-picker" title="Emoticons"><img src="assets/toolbar/smiley-btn.png" alt="Emoticons"></button>
+              <button type="button" class="icq-icon-btn" id="btn-nudge" title="Nudge your contact!"><img src="assets/toolbar/nudge.png" alt="Nudge"></button>
+              <button type="button" class="icq-icon-btn" id="btn-gift" title="Gift"><img src="assets/toolbar/gift.png" alt="Gift"></button>
+              <button type="button" class="icq-icon-btn" id="btn-spellcheck" title="Spellcheck"><img src="assets/toolbar/spellcheck.png" alt="Spellcheck"></button>
+              <button type="button" class="icq-icon-btn" id="btn-font-style" title="Font"><img src="assets/toolbar/font-aa.png" alt="Font"></button>
+            </div>
+
+            <!-- Emoticon Popover -->
+            <div id="emoticon-popover" class="emoticon-popover hidden" role="dialog" aria-label="Choose Emoticon">
+              <button type="button" class="emo-choice" data-emo=":)" data-img="assets/emoticons/smile.png"><img src="assets/emoticons/smile.png" alt=":)"></button>
+              <button type="button" class="emo-choice" data-emo=":(" data-img="assets/emoticons/sad.png"><img src="assets/emoticons/sad.png" alt=":("></button>
+              <button type="button" class="emo-choice" data-emo=";)" data-img="assets/emoticons/wink.png"><img src="assets/emoticons/wink.png" alt=";)"></button>
+              <button type="button" class="emo-choice" data-emo=":D" data-img="assets/emoticons/laugh.png"><img src="assets/emoticons/laugh.png" alt=":D"></button>
+              <button type="button" class="emo-choice" data-emo="B)" data-img="assets/emoticons/cool.png"><img src="assets/emoticons/cool.png" alt="B)"></button>
+              <button type="button" class="emo-choice" data-emo="<3" data-img="assets/emoticons/heart.png"><img src="assets/emoticons/heart.png" alt="<3"></button>
+              <button type="button" class="emo-choice" data-emo=">:( " data-img="assets/emoticons/angry.png"><img src="assets/emoticons/angry.png" alt=">:("></button>
+              <button type="button" class="emo-choice" data-emo=":O" data-img="assets/emoticons/surprised.png"><img src="assets/emoticons/surprised.png" alt=":O"></button>
+            </div>
+
+            <form id="message-form" class="composer-input-row">
+              <textarea id="message-input" rows="2" placeholder="and yet you're a terrible friend..." aria-label="Write a message"></textarea>
+              <button type="submit" id="send-message-btn" class="xp-send-btn">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Floating ICQ Contact List Window -->
+    <section id="contacts-window" class="xp-window icq-window icq-contacts-window" data-window="contacts" aria-label="ICQ Contact List">
+      <header class="icq-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/messenger-icons/icq-flower-online.png" alt="ICQ" class="title-flower">
+          <span class="icq-brand-text">icq</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" id="icq-menu-btn" class="icq-menu-trigger" title="ICQ Menu">Menu ▾</button>
+          <button type="button" class="xp-win-btn" data-action="minimize" data-target="contacts-window" title="Minimize">_</button>
+          <button type="button" class="xp-win-btn" data-action="maximize" data-target="contacts-window" title="Maximize">□</button>
+          <button type="button" class="xp-win-btn close-btn" data-action="close" data-target="contacts-window" title="Close">×</button>
+        </div>
+      </header>
+
+      <!-- ICQ Menu Dropdown -->
+      <div id="icq-menu-dropdown" class="icq-dropdown-menu hidden">
+        <button type="button" id="toggle-sound-btn">ICQ Sounds: ON</button>
+        <button type="button" id="toggle-lang-btn">Language: EN / RU</button>
+        <button type="button" id="reset-demo-btn">Reset conversations</button>
+      </div>
+
+      <!-- Current User Profile Section -->
+      <div class="contacts-user-profile">
+        <div class="user-avatar-box">
+          <img src="assets/profile-pictures/anya.png" alt="Blaze">
+        </div>
+        <div class="user-profile-details">
+          <div class="user-status-line">
+            <img id="self-status-flower" src="assets/messenger-icons/icq-flower-online.png" alt="Online">
+            <select id="self-status-select" aria-label="My Status">
+              <option value="online">Blaze (Online)</option>
+              <option value="away">Blaze (Away)</option>
+              <option value="offline">Blaze (Offline)</option>
+            </select>
+          </div>
+          <input type="text" id="self-status-input" class="self-status-input" value="What's happening right now?" placeholder="What's happening right now?" aria-label="Status message">
+        </div>
+      </div>
+
+      <!-- Contact List Category Toolbar -->
+      <div class="contacts-top-toolbar" role="toolbar" aria-label="Contact List Tabs">
+        <button type="button" class="cl-tab-btn active" data-cl-tab="contacts" title="Contacts"><img src="assets/toolbar/tab-contacts.png" alt="Contacts"></button>
+        <button type="button" class="cl-tab-btn" data-cl-tab="status" title="Statuses"><img src="assets/toolbar/tab-status.png" alt="Status"></button>
+        <button type="button" class="cl-tab-btn" data-cl-tab="messages" title="Messages"><img src="assets/toolbar/tab-messages.png" alt="Messages"></button>
+        <button type="button" class="cl-tab-btn" data-cl-tab="sms" title="SMS"><img src="assets/toolbar/tab-sms.png" alt="SMS"></button>
+      </div>
+
+      <!-- Show Filter Bar -->
+      <div class="contacts-filter-bar">
+        <label for="contact-filter-select">Show:</label>
+        <select id="contact-filter-select">
+          <option value="all">All</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+          <option value="favorites">Favorites</option>
+        </select>
+        <button type="button" id="add-contact-quick-btn" class="quick-add-btn" title="Add contact">
+          <img src="assets/toolbar/add-contact.png" alt="Add">
+        </button>
+      </div>
+
+      <!-- Scrollable Contacts List -->
+      <ul id="contacts-list" class="contacts-list" role="listbox" aria-label="Contacts"></ul>
+
+      <!-- Bottom Messenger Toolbar -->
+      <footer class="contacts-bottom-toolbar" role="toolbar" aria-label="Messenger Utilities">
+        <button type="button" class="icq-icon-btn" id="bottom-add-btn" title="Add contact"><img src="assets/toolbar/add-contact.png" alt="Add Contact"></button>
+        <button type="button" class="icq-icon-btn" id="bottom-games-btn" title="Games"><img src="assets/toolbar/games.png" alt="Games"></button>
+        <button type="button" class="icq-icon-btn" id="bottom-sms-btn" title="Send SMS"><img src="assets/toolbar/tab-sms.png" alt="SMS"></button>
+        <button type="button" class="icq-icon-btn" id="bottom-profile-btn" title="Profile"><img src="assets/toolbar/tab-contacts.png" alt="Profile"></button>
+        <button type="button" class="icq-icon-btn" id="bottom-settings-btn" title="Settings"><img src="assets/toolbar/settings.png" alt="Settings"></button>
+        <button type="button" class="icq-icon-btn" id="bottom-help-btn" title="Help"><img src="assets/toolbar/help.png" alt="Help"></button>
+      </footer>
+    </section>
+
+    <!-- Notepad Window (Opened from great depr..txt desktop icon) -->
+    <section id="notepad-window" class="xp-window classic-xp-window" data-window="notepad" aria-label="Notepad">
+      <header class="xp-blue-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/desktop-icons/txt-file.png" alt="" class="title-flower">
+          <span>know_mebruh.txt - Notepad</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" class="xp-blue-btn" data-action="minimize" data-target="notepad-window">_</button>
+          <button type="button" class="xp-blue-btn" data-action="maximize" data-target="notepad-window">□</button>
+          <button type="button" class="xp-blue-btn close-btn" data-action="close" data-target="notepad-window">×</button>
+        </div>
+      </header>
+      <div class="notepad-menubar">
+        <span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span>
+      </div>
+      <textarea class="notepad-textarea" aria-label="Notepad Content">whats up im blaze and i was born in 09 and im just a chill guy (girl) who loves pokemon cars and retro games hehe im also a music producer and i love making music and experimenting with different rnb and shit.
+
+if you wanna know more about me im a pretty nice person and im always down to talk about anything so dont be shy to dm me anytime my dms are always open and i love meeting new people and making friends
+
+you can also follow me on ig @19blzr if you wanna check out what i do
+
+anyways thats pretty much me just a chill dude who enjoys his hobbies and vibes with people so feel free to hit me up anytime
+      </textarea>
+    </section>
+
+    <!-- My Computer Placeholder Window -->
+    <section id="my-computer-window" class="xp-window classic-xp-window hidden" data-window="my-computer" aria-label="My Computer">
+      <header class="xp-blue-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/desktop-icons/my-computer.png" alt="" class="title-flower">
+          <span>My Computer</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" class="xp-blue-btn" data-action="minimize" data-target="my-computer-window">_</button>
+          <button type="button" class="xp-blue-btn close-btn" data-action="close" data-target="my-computer-window">×</button>
+        </div>
+      </header>
+      <div class="explorer-body">
+        <p class="explorer-heading">Hard Drives</p>
+        <div class="explorer-items">
+          <div class="explorer-item">
+            <img src="assets/desktop-icons/my-computer.png" alt="">
+            <span>Local Disk (C:) — 37.2 GB</span>
+          </div>
+          <div class="explorer-item">
+            <img src="assets/desktop-icons/txt-file.png" alt="">
+            <span>My Documents (2006)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Windows Media Player Style Video Player -->
+    <section id="video-player-window" class="xp-window classic-xp-window hidden" data-window="video-player" aria-label="Video Player">
+      <header class="xp-blue-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/toolbar/webcam.png" alt="" class="title-flower">
+          <span>Windows Video Player</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" class="xp-blue-btn" data-action="minimize" data-target="video-player-window">_</button>
+          <button type="button" class="xp-blue-btn" data-action="maximize" data-target="video-player-window">□</button>
+          <button type="button" class="xp-blue-btn close-btn" data-action="close" data-target="video-player-window">×</button>
+        </div>
+      </header>
+      <div class="video-player-body">
+        <div class="video-player-toolbar">
+          <span id="video-current-name" class="video-current-name">No video loaded</span>
+        </div>
+        <div class="video-player-main">
+          <video id="video-player" controls preload="metadata">
+            Your browser does not support the video element.
+          </video>
+          <div class="video-playlist">
+            <div class="video-playlist-heading">Playlist</div>
+            <div id="video-playlist-list" class="video-playlist-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tetris-window" class="xp-window classic-xp-window game-app-window hidden" data-window="tetris" aria-label="Tetris">
+      <header class="xp-blue-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/desktop-icons/tetris.png" alt="" class="title-flower game-title-icon">
+          <span>Tetris</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" class="xp-blue-btn" data-action="minimize" data-target="tetris-window">_</button>
+          <button type="button" class="xp-blue-btn" data-action="maximize" data-target="tetris-window">□</button>
+          <button type="button" class="xp-blue-btn close-btn" data-action="close" data-target="tetris-window">×</button>
+        </div>
+      </header>
+      <div class="game-app-body tetris-body">
+        <div class="game-toolbar">
+          <button type="button" id="tetris-start-btn" class="game-control-btn">Start</button>
+          <button type="button" id="tetris-new-btn" class="game-control-btn">New Game</button>
+          <span id="tetris-status" role="status">Press Start to play</span>
+        </div>
+        <div class="tetris-layout">
+          <div id="tetris-board" class="tetris-board" role="grid" aria-label="Tetris board" tabindex="0"></div>
+          <div class="tetris-info">
+            <div>Score <strong id="tetris-score">0</strong></div>
+            <div>Lines <strong id="tetris-lines">0</strong></div>
+            <p>← → Move<br>↓ Soft drop<br>↑ Rotate<br>Space Hard drop</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chess-window" class="xp-window classic-xp-window game-app-window hidden" data-window="chess" aria-label="Chess">
+      <header class="xp-blue-titlebar window-drag-handle">
+        <div class="titlebar-left">
+          <img src="assets/desktop-icons/chess.png" alt="" class="title-flower game-title-icon">
+          <span>Chess</span>
+        </div>
+        <div class="titlebar-controls">
+          <button type="button" class="xp-blue-btn" data-action="minimize" data-target="chess-window">_</button>
+          <button type="button" class="xp-blue-btn" data-action="maximize" data-target="chess-window">□</button>
+          <button type="button" class="xp-blue-btn close-btn" data-action="close" data-target="chess-window">×</button>
+        </div>
+      </header>
+      <div class="game-app-body chess-body">
+        <div class="game-toolbar">
+          <span id="chess-status" role="status">White to move</span>
+          <button type="button" id="chess-new-btn" class="game-control-btn">New Game</button>
+        </div>
+        <div id="chess-board" class="chess-board" role="grid" aria-label="Chess board"></div>
+        <p class="chess-help">Select a piece, then choose a highlighted square. No castling or en passant.</p>
+      </div>
+    </section>
+
+    <!-- Windows XP Start Menu -->
+    <aside id="xp-start-menu" class="xp-start-menu hidden" aria-label="Start Menu">
+      <div class="start-menu-header">
+        <img src="assets/profile-pictures/anya.png" alt="User">
+        <span>Blaze (Admin)</span>
+      </div>
+      <div class="start-menu-body">
+        <div class="start-left-col">
+          <button type="button" class="start-item" data-open-window="chat-window">
+            <img src="assets/messenger-icons/icq-flower-online.png" alt="">
+            <span>ICQ 2006 Chat</span>
+          </button>
+          <button type="button" class="start-item" data-open-window="contacts-window">
+            <img src="assets/toolbar/tab-contacts.png" alt="">
+            <span>Contact List</span>
+          </button>
+          <button type="button" class="start-item" data-open-window="winamp-window">
+            <img src="assets/desktop-icons/winamp.png" alt="">
+            <span>Winamp Player</span>
+          </button>
+          <button type="button" class="start-item" data-open-window="notepad-window">
+            <img src="assets/desktop-icons/txt-file.png" alt="">
+            <span>Notepad (great depr..txt)</span>
+          </button>
+          <button type="button" class="start-item" data-open-window="video-player-window">
+            <img src="assets/toolbar/webcam.png" alt="">
+            <span>Video Player</span>
+          </button>
+          <button type="button" class="start-item" data-open-window="tetris-window">
+            <img src="assets/desktop-icons/tetris.png" alt="">
+            <span>Tetris</span>
+          </button>
+          <button type="button" class="start-item" data-open-window="chess-window">
+            <img src="assets/desktop-icons/chess.png" alt="">
+            <span>Chess</span>
+          </button>
+        </div>
+        <div class="start-right-col">
+          <button type="button" class="start-item" data-open-window="my-computer-window">
+            <img src="assets/desktop-icons/my-computer.png" alt="">
+            <span>My Computer</span>
+          </button>
+          <button type="button" class="start-item" id="start-sound-toggle">
+            <img src="assets/toolbar/settings.png" alt="">
+            <span>Sound: ON</span>
+          </button>
+        </div>
+      </div>
+      <div class="start-menu-footer">
+        <button type="button" id="start-close-btn" class="start-logoff-btn">Close Menu</button>
+      </div>
+    </aside>
+
+    <!-- Windows XP Bottom Taskbar -->
+    <footer class="xp-taskbar" role="contentinfo">
+      <button type="button" id="xp-start-btn" class="xp-start-btn" aria-expanded="false">
+        <img src="assets/decorations/xp-flag.png" alt="">
+        <span>start</span>
+      </button>
+
+      <div id="taskbar-windows" class="taskbar-windows">
+        <button type="button" class="taskbar-item" data-target="winamp-window">
+          <img src="assets/desktop-icons/winamp.png" alt="">
+          <span>Winamp</span>
+        </button>
+        <button type="button" class="taskbar-item active" data-target="chat-window">
+          <img src="assets/messenger-icons/icq-flower-online.png" alt="">
+          <span>ICQ — Giselle</span>
+        </button>
+        <button type="button" class="taskbar-item" data-target="contacts-window">
+          <img src="assets/messenger-icons/icq-flower-online.png" alt="">
+          <span>ICQ — Blaze</span>
+        </button>
+        <button type="button" class="taskbar-item" data-target="video-player-window">
+          <img src="assets/toolbar/webcam.png" alt="">
+          <span>Video Player</span>
+        </button>
+        <button type="button" class="taskbar-item" data-target="tetris-window">
+          <img src="assets/desktop-icons/tetris.png" alt="">
+          <span>Tetris</span>
+        </button>
+        <button type="button" class="taskbar-item" data-target="chess-window">
+          <img src="assets/desktop-icons/chess.png" alt="">
+          <span>Chess</span>
+        </button>
+      </div>
+
+      <div class="xp-tray">
+        <button type="button" id="tray-sound-btn" class="tray-icon-btn" title="Toggle Sound">
+          <img src="assets/messenger-icons/icq-flower-online.png" alt="ICQ Tray">
+        </button>
+        <time id="xp-clock" class="xp-clock">18:42</time>
+      </div>
+    </footer>
+      <div id="virus-popup-layer" class="virus-popup-layer" aria-label="Fake virus alerts"></div>
+  </main>
+
+  <audio id="notification-audio" src="audio/notification.mp3" preload="none"></audio>
+  <script src="js/messenger.js"></script>
+  <script src="js/desktop.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
